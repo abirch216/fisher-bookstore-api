@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Fisher.Bookstore.Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using Fisher.Bookstore.Api.Data;
 
 namespace Fisher.Bookstore.Api.Controllers
 {
@@ -21,13 +22,11 @@ namespace Fisher.Bookstore.Api.Controllers
                 this.db.Authors.Add(new Author {
                     Id = 1,
                     Name = "Alex Birchfield",
-                    NumberOfBooks = 5
                 });
 
                 this.db.Authors.Add(new Author{
                     Id = 2,
                     Name = "Lebron James",
-                    NumberOfBooks = 23
                 });
 
                 this.db.SaveChanges();
@@ -78,7 +77,6 @@ namespace Fisher.Bookstore.Api.Controllers
                 return NotFound();
             }
 
-            currentAuthor.NumberOfBooks = newAuthor.NumberOfBooks;
 
             this.db.Authors.Update(currentAuthor);
             this.db.SaveChanges();
